@@ -1,0 +1,2 @@
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "swaybg" "-i" "/usr/share/backgrounds/hackthebox.jpg" "-m" "fill"

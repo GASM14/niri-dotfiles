@@ -1,0 +1,28 @@
+// Catppuccin Mocha Theme for Niri
+
+layout {
+    gaps 8
+    
+    focus-ring {
+        width 2
+        active-color "#89b4fa"
+        inactive-color "#45475a"
+    }
+    
+    border {
+        off
+    }
+    
+    shadow {
+        on
+        softness 20
+        spread 2
+        offset x=0 y=4
+        color "#00000066"
+    }
+}
+
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}

@@ -1,0 +1,28 @@
+#!/bin/bash
+WALLPAPER_DIR="$HOME/Pictures/myshieldtvwallpapers"
+
+# Obter lista de wallpapers (evita problemas com glob)
+mapfile -t WALLPAPERS < <(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | sort)
+
+if [ ${#WALLPAPERS[@]} -eq 0 ]; then
+    echo "Nenhum wallpaper encontrado em $WALLPAPER_DIR" >&2
+    exit 1
+fi
+
+# Encontrar wallpaper atual
+CURRENT=$(pgrep -a swaybg | grep -o "$WALLPAPER_DIR/[^ ]*" | head -1)
+
+# Encontrar próximo
+NEXT_IDX=0
+for i in "${!WALLPAPERS[@]}"; do
+    if [[ "${WALLPAPERS[$i]}" == "$CURRENT" ]]; then
+        NEXT_IDX=$(( (i+1) % ${#WALLPAPERS[@]} ))
+        break
+    fi
+done
+
+# Aplicar novo wallpaper
+pkill swaybg
+sleep 0.5
+swaybg -i "${WALLPAPERS[$NEXT_IDX]}" -m fill &
+echo "Wallpaper: $(basename "${WALLPAPERS[$NEXT_IDX]}")"

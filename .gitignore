@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Secrets
+*.secret
+.env
+
+# Cache
+.cache/
+__pycache__/
+
+# Screenshots (opcional - descomenta se não quiseres commit)
+# screenshots/
+
+# Wallpapers (opcional - descomenta se não quiseres commit)
+# wallpapers/*.jpg
+# wallpapers/*.png
