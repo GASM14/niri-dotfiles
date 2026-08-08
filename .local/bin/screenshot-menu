@@ -1,0 +1,73 @@
+#!/bin/bash
+SAVE_DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$SAVE_DIR"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+# Detetar editor disponível
+if command -v kolourpaint &>/dev/null; then
+    EDITOR_CMD="kolourpaint"
+    EDITOR_NAME="KolourPaint"
+elif command -v drawing &>/dev/null; then
+    EDITOR_CMD="drawing"
+    EDITOR_NAME="Drawing"
+elif command -v gimp &>/dev/null; then
+    EDITOR_CMD="gimp"
+    EDITOR_NAME="GIMP"
+elif command -v krita &>/dev/null; then
+    EDITOR_CMD="krita"
+    EDITOR_NAME="Krita"
+else
+    EDITOR_CMD="xdg-open"
+    EDITOR_NAME="Default"
+fi
+
+CHOICE=$(printf "Selecionar região → guardar\nSelecionar janela → guardar\nEcrã inteiro → guardar\nEcrã com delay (5s)\nEditar região ($EDITOR_NAME)\nCopiar região → clipboard\nCopiar janela → clipboard" | fuzzel --dmenu --prompt="Screenshot: " --lines=7)
+
+case "$CHOICE" in
+    "Selecionar região → guardar")
+        FILE="$SAVE_DIR/region_$TIMESTAMP.png"
+        if grim -g "$(slurp)" "$FILE"; then
+            notify-send "✓ Screenshot" "Guardado em $FILE" --icon=camera-photo
+        fi
+        ;;
+    "Selecionar janela → guardar")
+        FILE="$SAVE_DIR/window_$TIMESTAMP.png"
+        if grim -g "$(slurp)" "$FILE"; then
+            notify-send "✓ Screenshot" "Janela guardada" --icon=camera-photo
+        fi
+        ;;
+    "Ecrã inteiro → guardar")
+        FILE="$SAVE_DIR/screen_$TIMESTAMP.png"
+        if grim "$FILE"; then
+            notify-send "✓ Screenshot" "Ecrã guardado" --icon=camera-photo
+        fi
+        ;;
+    "Ecrã com delay"*)
+        notify-send "⏱️ Screenshot" "Em 5 segundos..." --icon=camera-photo
+        sleep 5
+        FILE="$SAVE_DIR/screen_delay_$TIMESTAMP.png"
+        if grim "$FILE"; then
+            notify-send "✓ Screenshot" "Ecrã com delay guardado" --icon=camera-photo
+        fi
+        ;;
+    "Editar região"*)
+        FILE="$SAVE_DIR/edit_$TIMESTAMP.png"
+        if grim -g "$(slurp)" "$FILE"; then
+            $EDITOR_CMD "$FILE" &
+            notify-send "🎨 Screenshot" "Aberto no $EDITOR_NAME" --icon=camera-photo
+        fi
+        ;;
+    "Copiar região → clipboard")
+        if grim -g "$(slurp)" - | wl-copy --type image/png; then
+            notify-send "✓ Screenshot" "Região copiada para clipboard" --icon=edit-copy
+        fi
+        ;;
+    "Copiar janela → clipboard")
+        if grim -g "$(slurp)" - | wl-copy --type image/png; then
+            notify-send "✓ Screenshot" "Janela copiada para clipboard" --icon=edit-copy
+        fi
+        ;;
+    *)
+        exit 0
+        ;;
+esac
