@@ -19,6 +19,7 @@
   "modules-right": [
     "tray",
     "pulseaudio",
+    "bluetooth",
     "network",
     "cpu",
     "memory",
@@ -90,7 +91,8 @@
     "format-wifi": "  {signalStrength}% {essid}",
     "format-ethernet": "  {ifname}",
     "format-disconnected": "  offline",
-    "tooltip-format": "{ifname} | {ipaddr}"
+    "tooltip-format": "{ifname} | {ipaddr}",
+    "on-click": "nm-connection-editor"
   },
 
   "pulseaudio": {
@@ -101,6 +103,14 @@
       "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
+  },
+
+  "bluetooth": {
+    "format": " ",
+    "format-connected": "  {device_alias}",
+    "format-disabled": " ",
+    "tooltip-format": "{controller_alias}\n{num_connections} connected",
+    "on-click": "blueman-manager"
   },
 
   "idle_inhibitor": {

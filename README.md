@@ -1,5 +1,9 @@
 # 🌀 Niri Dotfiles — Gonçalo's Setup
 
+[![GitHub last commit](https://img.shields.io/github/last-commit/GASM14/niri-dotfiles)](https://github.com/GASM14/niri-dotfiles/commits)
+[![GitHub repo size](https://img.shields.io/github/repo-size/GASM14/niri-dotfiles)](https://github.com/GASM14/niri-dotfiles)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Personal configuration for **Niri** (scrollable tiling Wayland compositor) + **Waybar** + **Fuzzel** on Parrot OS.
 
 ![Setup](screenshot.png)
@@ -73,7 +77,19 @@ pkill waybar && waybar &
 | `Super + Alt + L` | Lock screen |
 | `Super + Ctrl + Shift + Q` | Quit Niri |
 
+## 📸 Screenshots
+
+| Key | Action |
+|-----|--------|
+| `PrtSc` | Screenshot menu (7 options) |
+| `Shift + PrtSc` | Select region → clipboard |
+| `Ctrl + PrtSc` | Fullscreen screenshot |
+| `Alt + PrtSc` | Select region → edit in GIMP |
+
+Screenshots saved to `~/Pictures/Screenshots/`
+
 ## 🎨 Customization
+
 
 ### Wallpapers
 
