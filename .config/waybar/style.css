@@ -87,7 +87,7 @@ tooltip label {
 /* Calendário: fonte maior e espaçamento */
 tooltip calendar {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px;
+    font-size: 18px;
     padding: 4px;
 }
 
@@ -105,7 +105,7 @@ tooltip calendar.header {
 
 tooltip calendar.button {
     color: #89b4fa;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 tooltip calendar.highlight {
