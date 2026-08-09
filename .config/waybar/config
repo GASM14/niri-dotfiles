@@ -17,6 +17,7 @@
     "bluetooth",
     "cpu",
     "memory",
+    "custom/power",
     "battery"
   ],
   "niri/workspaces": {
@@ -32,7 +33,7 @@
   "clock": {
     "format": "{:%H:%M}",
     "format-alt": "{:%A, %d %B %Y}",
-    "tooltip-format": "<span color='#89b4fa' size='xx-large'><b>{:%B %Y}</b></span>\n\n<tt><span size='large'>\n{calendar}\n</span></tt>\n\n<span color='#a6e3a1'>Hoje: {:%A, %d %B %Y}</span>\n<span color='#f9e2af'>Semana {:%V}</span>",
+    "tooltip-format": "<big><b>{:%B %Y}</b></big>\n<tt>{calendar}</tt>\n\nHoje: {:%A, %d %B}\nSemana: {:%V}",
     "calendar": {
       "mode": "month",
       "mode-mon-col": 3,
@@ -115,5 +116,12 @@
       ""
     ],
     "on-click": "ghostty -e btop"
+  },
+  "custom/power": {
+    "exec": "powerprofilesctl get | sed 's/balanced/⚖️/;s/power-saver/🔋/;s/performance/⚡/'",
+    "interval": 5,
+    "on-click": "~/.local/bin/power-profile-cycle",
+    "tooltip": true,
+    "tooltip-format": "Power Profile: {}"
   }
 }

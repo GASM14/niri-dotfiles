@@ -1,0 +1,16 @@
+#!/bin/bash
+CURRENT=$(powerprofilesctl get)
+case "$CURRENT" in
+    "power-saver")
+        powerprofilesctl set balanced
+        notify-send "⚡ Power Profile" "Changed to Balanced" --icon=battery-good
+        ;;
+    "balanced")
+        powerprofilesctl set performance
+        notify-send "⚡ Power Profile" "Changed to Performance" --icon=battery-full
+        ;;
+    "performance")
+        powerprofilesctl set power-saver
+        notify-send "⚡ Power Profile" "Changed to Power Saver" --icon=battery-low
+        ;;
+esac

@@ -118,3 +118,14 @@ tooltip calendar:selected {
     background: #89b4fa;
     color: #1e1e2e;
 }
+
+#custom-power {
+    background: rgba(249, 226, 175, 0.25);
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 4px;
+}
+
+#custom-power:hover {
+    background: rgba(249, 226, 175, 0.4);
+}
