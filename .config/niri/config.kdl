@@ -170,6 +170,8 @@ window-rule {
 }
 
 binds {
+    Mod+F1  hotkey-overlay-title="Cheatsheet" { show-hotkey-overlay; }
+
     Mod+Ctrl+T hotkey-overlay-title="Toggle window transparency" { toggle-window-rule-opacity; }
 
     Mod+Shift+W hotkey-overlay-title="Cycle wallpaper" { spawn "/home/goncalom/.local/bin/wallpaper-cycle"; }
@@ -178,10 +180,10 @@ binds {
 
 
     // Overview.
-    Mod+Grave          hotkey-overlay-title="System menu" { spawn "dfr-menu"; }
-    Mod+Slash          hotkey-overlay-title="Search niri keybinds" { spawn "fuzzel"; }
-    Mod+Shift+Slash    hotkey-overlay-title="Search niri actions" { spawn "fuzzel"; }
-    Mod+Ctrl+Slash     hotkey-overlay-title="Search Waybar actions" { spawn "fuzzel"; }
+    Mod+Shift+M        hotkey-overlay-title="System menu" { spawn "dfr-menu"; }
+    Mod+F2             hotkey-overlay-title="Search niri keybinds" { spawn "fuzzel"; }
+    Mod+F3             hotkey-overlay-title="Search niri actions" { spawn "fuzzel"; }
+    Mod+F4             hotkey-overlay-title="Search Waybar actions" { spawn "fuzzel"; }
     Mod+O repeat=false hotkey-overlay-title="Toggle overview (4-finger swipe)" { toggle-overview; }
 
     // System.
@@ -211,6 +213,13 @@ binds {
     Mod+Shift+BackSlash      hotkey-overlay-title="Pick theme's wallpapers" { spawn "dfr-theme-set-bg" "--menu"; }
     Mod+Ctrl+BackSlash       hotkey-overlay-title="Cycle themes" { spawn "dfr-theme-set"; }
     Mod+Ctrl+Shift+BackSlash hotkey-overlay-title="Pick theme" { spawn "dfr-theme-set" "--menu"; }
+
+
+    // Screenshots (estilo KDE Spectacle)
+    Print           hotkey-overlay-title="Screenshot menu (PrtSc)" { spawn "/home/goncalom/.local/bin/screenshot-menu"; }
+    Shift+Print     hotkey-overlay-title="Screenshot region to clipboard" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy --type image/png && notify-send 'Screenshot' 'Copiado para clipboard' --icon=edit-copy"; }
+    Ctrl+Print      hotkey-overlay-title="Screenshot fullscreen" { spawn "sh" "-c" "grim \"$HOME/Pictures/Screenshots/screen_$(date +%Y%m%d_%H%M%S).png\" && notify-send 'Screenshot' 'Ecrã guardado' --icon=camera-photo"; }
+    Alt+Print       hotkey-overlay-title="Edit screenshot" { spawn "sh" "-c" "FILE=\"$HOME/Pictures/Screenshots/edit_$(date +%Y%m%d_%H%M%S).png\"; grim -g \"$(slurp)\" \"$FILE\" && (command -v kolourpaint >/dev/null 2>&1 && kolourpaint \"$FILE\" || xdg-open \"$FILE\") &"; }
 
     // Media keys.
     XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Raise volume" { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }

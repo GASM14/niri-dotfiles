@@ -39,7 +39,8 @@
 | `Alt + PrtSc` | Região → GIMP |
 
 ## 💡 Tips
-1. **`Super + Shift + /`** → hotkey overlay (cheatsheet on-screen de TODOS os atalhos!)
+1. **`Super + F1`** → hotkey overlay (cheatsheet on-screen)
+1b. **`Super + F2/F3/F4`** → pesquisa interativa de keybinds/ações (melhor que scroll!)
 2. **Scroll horizontal no touchpad** → swipe entre workspaces
 3. **`Super + roda do rato`** → ciclar workspaces
 4. **Arrastar com `Super + clique esquerdo`** → mover janela
