@@ -1,13 +1,12 @@
-environment {
-    XKB_DEFAULT_LAYOUT "pt"
-    XKB_DEFAULT_OPTIONS "altwin:menu_win"
+input {
+    keyboard {
+        xkb {
+            layout "pt"
+        }
+    }
 }
 
-
-
-
-
-    // Idle management: lock after 10min, suspend after 15min
+// Idle management: lock after 10min, suspend after 15min
 
 // Check the wiki for a full description of the configuration:
 //   https://yalter.github.io/niri/Configuration:-Introduction
@@ -17,6 +16,7 @@ environment {
 // ----------------------------------------------------------------------------
 
 spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
+spawn-at-startup "/home/goncalom/.local/bin/wallpaper-restore"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 600 'lock-screen' timeout 900 'systemctl suspend' resume 'lock-screen' before-sleep 'lock-screen'"
 spawn-at-startup "nm-applet" "--indicator"
 
