@@ -170,6 +170,9 @@ window-rule {
 }
 
 binds {
+    Mod+Alt+D  hotkey-overlay-title="Document viewer" { spawn "zathura"; }
+    Mod+Alt+I  hotkey-overlay-title="Image viewer" { spawn "imv"; }
+
     Mod+F1  hotkey-overlay-title="Cheatsheet" { show-hotkey-overlay; }
 
     Mod+Ctrl+T hotkey-overlay-title="Toggle window transparency" { toggle-window-rule-opacity; }
