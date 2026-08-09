@@ -1,0 +1,17 @@
+#!/bin/bash
+# Cava visualizer no terminal
+mkfifo /tmp/cava_fifo 2>/dev/null || true
+cava &
+CAVA_PID=$!
+sleep 0.5
+
+# Ler do FIFO e mostrar barras
+while IFS= read -r line; do
+    clear
+    echo "$line" | tr ';' '\n' | while read -r bar; do
+        height=$((bar / 4))
+        printf '%*s\n' "$height" '' | tr ' ' '█'
+    done
+done < /tmp/cava_fifo
+
+kill $CAVA_PID 2>/dev/null

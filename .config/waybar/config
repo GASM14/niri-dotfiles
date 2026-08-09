@@ -7,7 +7,8 @@
     "niri/window"
   ],
   "modules-center": [
-    "clock"
+    "clock",
+    "mpris"
   ],
   "modules-right": [
     "tray",
@@ -121,5 +122,18 @@
     "on-click": "~/.local/bin/power-profile-cycle",
     "tooltip": true,
     "tooltip-format": "Power Profile: {}"
+  },
+  "mpris": {
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": "{player_icon} {artist} - {title}",
+    "player-icons": {
+      "default": "▶",
+      "firefox": "🦊",
+      "spotify": "🎵",
+      "chromium": "🌐"
+    },
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous"
   }
 }

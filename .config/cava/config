@@ -2,11 +2,13 @@
 bars = 0
 width = 2
 gap = 1
+framerate = 60
 
 [output]
-method = ncurses
+method = raw
 source = pulse
 channels = stereo
+raw_target = /tmp/cava_fifo
 
 [color]
 gradient = 1
