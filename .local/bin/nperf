@@ -1,0 +1,5 @@
+#!/bin/bash
+export DISPLAY="${DISPLAY:-:0}"
+export QT_QPA_PLATFORM=xcb
+export GDK_BACKEND=x11
+exec /home/goncalom/AppImages/nperf.appimage "$@"
