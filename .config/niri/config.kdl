@@ -1,8 +1,5 @@
 
-spawn-at-startup {
     // Idle management: lock after 10min, suspend after 15min
-    spawn "sh" "-c" "swayidle -w timeout 600 'hyprlock' timeout 900 'systemctl suspend' resume 'hyprlock' before-sleep 'hyprlock'"
-}
 
 // Check the wiki for a full description of the configuration:
 //   https://yalter.github.io/niri/Configuration:-Introduction
@@ -12,6 +9,7 @@ spawn-at-startup {
 // ----------------------------------------------------------------------------
 
 spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
+spawn-at-startup "sh" "-c" "swayidle -w timeout 600 'swaylock -f -c 000000' timeout 900 'systemctl suspend' resume 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'"
 spawn-at-startup "nm-applet" "--indicator"
 
 // ----------------------------------------------------------------------------
