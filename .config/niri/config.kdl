@@ -1,3 +1,11 @@
+environment {
+    XKB_DEFAULT_LAYOUT "pt"
+    XKB_DEFAULT_OPTIONS "altwin:menu_win"
+}
+
+
+
+
 
     // Idle management: lock after 10min, suspend after 15min
 
@@ -9,7 +17,7 @@
 // ----------------------------------------------------------------------------
 
 spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
-spawn-at-startup "sh" "-c" "swayidle -w timeout 600 'swaylock -f -c 000000' timeout 900 'systemctl suspend' resume 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'"
+spawn-at-startup "sh" "-c" "swayidle -w timeout 600 'lock-screen' timeout 900 'systemctl suspend' resume 'lock-screen' before-sleep 'lock-screen'"
 spawn-at-startup "nm-applet" "--indicator"
 
 // ----------------------------------------------------------------------------

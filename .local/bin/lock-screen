@@ -1,0 +1,10 @@
+#!/bin/bash
+STATE="$HOME/.cache/last-wallpaper"
+DEFAULT="$HOME/Pictures/myshieldtvwallpapers/wallhaven-1qdmj3 (1).jpg"
+WP=$(cat "$STATE" 2>/dev/null || echo "$DEFAULT")
+
+if [ -f "$WP" ]; then
+    swaylock -i "$WP" -s fill
+else
+    swaylock -c 11111b
+fi
