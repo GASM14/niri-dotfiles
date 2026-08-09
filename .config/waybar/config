@@ -33,17 +33,15 @@
   "clock": {
     "format": "{:%H:%M}",
     "format-alt": "{:%A, %d %B %Y}",
-    "tooltip-format": "<big><b>{:%B %Y}</b></big>\n<tt>{calendar}</tt>\n\nHoje: {:%A, %d %B}\nSemana: {:%V}",
+    "tooltip-format": "{calendar}",
     "calendar": {
       "mode": "month",
-      "mode-mon-col": 3,
-      "weeks-pos": null,
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#f38ba8' size='x-large'><b>{}</b></span>",
-        "days": "<span color='#cdd6f4' size='large'>{}</span>",
-        "weeks": "<span color='#a6e3a1'>W{}</span>",
-        "weekdays": "<span color='#f9e2af' size='large'><b>{}</b></span>",
+        "months": "<span color='#89b4fa' size='x-large'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'>{}</span>",
+        "weeks": "<span color='#a6e3a1'><small>W{}</small></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
         "today": "<span color='#f38ba8' size='x-large'><b><u>{}</u></b></span>"
       }
     },
