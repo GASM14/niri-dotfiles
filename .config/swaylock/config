@@ -1,0 +1,20 @@
+ignore-empty-password
+show-failed-attempts
+show-keyboard-layout
+indicator-idle-visible
+font=JetBrainsMono Nerd Font
+font-size=24
+color=11111b
+text-color=cdd6f4
+inside-color=1e1e2e
+ring-color=89b4fa
+line-color=1e1e2e
+separator-color=00000000
+inside-ver-color=1e1e2e
+ring-ver-color=89b4fa
+line-ver-color=1e1e2e
+inside-wrong-color=1e1e2e
+ring-wrong-color=f38ba8
+line-wrong-color=1e1e2e
+indicator-radius=100
+indicator-thickness=20
