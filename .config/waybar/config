@@ -43,7 +43,8 @@
         "weeks": "<span color='#a6e3a1'><small>W{}</small></span>",
         "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
         "today": "<span color='#f38ba8' size='x-large'><b><u>{}</u></b></span>"
-      }
+      },
+      "mode-mon-col": 4
     },
     "actions": {
       "on-click-right": "mode",
