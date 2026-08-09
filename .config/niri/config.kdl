@@ -1,3 +1,9 @@
+
+spawn-at-startup {
+    // Idle management: lock after 10min, suspend after 15min
+    spawn "sh" "-c" "swayidle -w timeout 600 'hyprlock' timeout 900 'systemctl suspend' resume 'hyprlock' before-sleep 'hyprlock'"
+}
+
 // Check the wiki for a full description of the configuration:
 //   https://yalter.github.io/niri/Configuration:-Introduction
 
@@ -7,53 +13,6 @@
 
 spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
 spawn-at-startup "nm-applet" "--indicator"
-spawn-at-startup "swayidle" "-w"
-spawn-at-startup "dfr-theme-set-bg" "--keep-current"
-spawn-at-startup "mako"
-spawn-at-startup "waybar"
-// spawn-at-startup "elephant"
-spawn-at-startup "fuzzel" "--gapplication-service"
-spawn-at-startup "mpd"
-// spawn-sh-at-startup "sleep 1; exec mpd-mpris"
-spawn-at-startup "dfr-first-boot"
-
-// ----------------------------------------------------------------------------
-// Input devices (mouse, trackpad, keyboard, etc.)
-// ----------------------------------------------------------------------------
-
-input {
-    keyboard {
-        xkb {
-            layout "pt"
-            // Swap caps lock and escape.
-            // Remap menu key to act as an extra super / mod key.
-            options "altwin:menu_win"
-        }
-
-        // A fairly fast repeat rate and delay.
-        repeat-delay 200
-        repeat-rate 40
-    }
-
-    touchpad {
-        // Tapping anywhere registers a left click.
-        tap
-
-        // Inverted scrolling.
-        natural-scroll
-
-        // Disable acceleration.
-        accel-profile "flat"
-    }
-
-    mouse {
-        // Disable acceleration.
-        accel-profile "flat"
-
-        // Faster scrolling with the mouse wheel.
-        scroll-factor 2.0
-    }
-}
 
 // ----------------------------------------------------------------------------
 // Behaviors and aesthetics
