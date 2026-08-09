@@ -4,7 +4,6 @@
     min-height: 0;
 }
 
-/* Barra flutuante transparente */
 window#waybar {
     background: rgba(17, 17, 27, 0.5);
     color: #cdd6f4;
@@ -40,7 +39,6 @@ window#waybar {
     padding: 0 10px;
 }
 
-/* Pills semi-transparentes com cor por função */
 #clock, #tray, #idle_inhibitor, #pulseaudio, #network, #bluetooth,
 #cpu, #memory, #battery, #custom-power {
     padding: 0 12px;
@@ -73,11 +71,48 @@ window#waybar {
 #battery.warning  { background: rgba(249, 226, 175, 0.5); color: #11111b; }
 #battery.critical { background: #f38ba8; color: #11111b; }
 
+/* Tooltip maior com calendário gigante */
 tooltip {
-    background: rgba(17, 17, 27, 0.92);
+    background: rgba(17, 17, 27, 0.95);
     border: 1px solid rgba(137, 180, 250, 0.4);
-    border-radius: 12px;
-    padding: 10px;
+    border-radius: 14px;
+    padding: 16px;
 }
 
-tooltip label { color: #cdd6f4; }
+tooltip label {
+    color: #cdd6f4;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+/* Calendário: fonte maior e espaçamento */
+tooltip calendar {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    padding: 4px;
+}
+
+tooltip calendar:selected {
+    background: rgba(137, 180, 250, 0.4);
+    color: #cdd6f4;
+    border-radius: 4px;
+}
+
+tooltip calendar.header {
+    color: #89b4fa;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+tooltip calendar.button {
+    color: #89b4fa;
+    font-size: 16px;
+}
+
+tooltip calendar.highlight {
+    color: #f38ba8;
+    font-weight: bold;
+}
+
+tooltip calendar:indeterminate {
+    color: rgba(205, 214, 244, 0.3);
+}
