@@ -87,7 +87,7 @@ tooltip label {
 /* Calendário: fonte maior e espaçamento */
 tooltip calendar {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 18px;
+    font-size: 14px;
     padding: 4px;
 }
 
@@ -100,12 +100,12 @@ tooltip calendar:selected {
 tooltip calendar.header {
     color: #89b4fa;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 tooltip calendar.button {
     color: #89b4fa;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 tooltip calendar.highlight {
@@ -115,4 +115,14 @@ tooltip calendar.highlight {
 
 tooltip calendar:indeterminate {
     color: rgba(205, 214, 244, 0.3);
+}
+
+/* Tooltip: fonte base 15px uniforme para tudo */
+tooltip {
+    font-size: 15px;
+    padding: 20px;
+}
+
+tooltip calendar {
+    font-size: 15px;
 }
