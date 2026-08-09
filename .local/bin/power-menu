@@ -1,0 +1,10 @@
+#!/bin/bash
+CHOICE=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | fuzzel --dmenu --prompt="⚡ Power: ")
+
+case "$CHOICE" in
+    "Lock") lock-screen ;;
+    "Logout") niri msg action quit ;;
+    "Suspend") systemctl suspend ;;
+    "Reboot") systemctl reboot ;;
+    "Shutdown") systemctl poweroff ;;
+esac

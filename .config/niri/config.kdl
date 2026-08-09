@@ -1,3 +1,8 @@
+environment {
+    QT_QPA_PLATFORMTHEME "qt5ct"
+    QT_STYLE_OVERRIDE "kvantum"
+}
+
 // Animações suaves
 animations {
     slowdown 1.0
@@ -170,6 +175,8 @@ window-rule {
 }
 
 binds {
+    Mod+Shift+Escape  hotkey-overlay-title="Power menu" { spawn "power-menu"; }
+    Mod+Shift+V  hotkey-overlay-title="Clipboard history" { spawn "cliphist-fuzzel"; }
     Mod+Alt+D  hotkey-overlay-title="Document viewer" { spawn "zathura"; }
     Mod+Alt+I  hotkey-overlay-title="Image viewer" { spawn "imv"; }
 
