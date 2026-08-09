@@ -1,126 +1,100 @@
-@define-color bg      #1e1e2e;
-@define-color bg-alt  #181825;
-@define-color fg      #cdd6f4;
-@define-color blue    #89b4fa;
-@define-color green   #a6e3a1;
-@define-color yellow  #f9e2af;
-@define-color red     #f38ba8;
-@define-color peach   #fab387;
-@define-color mauve   #cba6f7;
-@define-color pink    #f5c2e7;
-@define-color teal    #94e2d5;
-@define-color surface #313244;
-
 * {
-  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
-  font-size: 13px;
-  font-weight: 500;
-  min-height: 0;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  margin: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    min-height: 0;
 }
 
 window#waybar {
-  background: transparent;
-  color: @fg;
+    background: rgba(30, 30, 46, 0.95);
+    color: #cdd6f4;
+    border-bottom: 2px solid #89b4fa;
 }
 
-/* Módulos base — cada um é uma "pílula" com fundo */
-#workspaces, #window, #clock, #pulseaudio, #network, #bluetooth,
-#cpu, #memory, #temperature, #battery, #idle_inhibitor,
-#custom-uptime, #custom-kblayout, #custom-launcher, #custom-arch {
-  background: @bg;
-  color: @fg;
-  margin: 4px 0;
-  padding: 0 10px;
-}
-
-#workspaces { padding: 0 4px; border-radius: 6px 0 0 6px; }
-#custom-kblayout { border-radius: 0 6px 6px 0; }
-
-/* Powerline separators (arrows between modules) */
-#custom-sep-l, #custom-sep-r {
-  font-size: 22px;
-  color: @bg;
-  padding: 0;
-  margin: 0 -1px;
-  background: transparent;
-}
-#custom-sep-l { color: @surface; }
-#custom-sep-r { color: @surface; }
-
-/* Launcher logo — highlight */
-#custom-launcher {
-  background: @blue;
-  color: @bg;
-  border-radius: 6px 0 0 6px;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 0 12px;
-  transition: all 0.2s ease;
-}
-#custom-launcher:hover { background: @mauve; }
-
-/* Workspaces */
 #workspaces button {
-  padding: 2px 8px;
-  color: @surface;
-  background: transparent;
-  transition: all 0.2s ease;
-}
-#workspaces button:hover { color: @fg; }
-#workspaces button.active { color: @blue; }
-#workspaces button.urgent { color: @red; animation: blink 0.5s linear infinite; }
-
-/* Window title */
-#window { color: @blue; font-weight: 400; font-style: italic; }
-
-/* Clock — central feature */
-#clock { color: @yellow; font-weight: 600; }
-#custom-arch {
-  background: @bg;
-  color: @blue;
-  font-size: 16px;
-  border-radius: 6px 0 0 6px;
+    padding: 0 8px;
+    margin: 4px 2px;
+    background: transparent;
+    color: #cdd6f4;
+    border: none;
+    border-radius: 4px;
 }
 
-/* Module-specific colors */
-#cpu       { color: @peach; }
-#memory    { color: @mauve; }
-#temperature { color: @pink; }
-#battery   { color: @green; }
-#network   { color: @blue; }
-#bluetooth { color: @teal; }
-#pulseaudio { color: @pink; }
-#idle_inhibitor { color: @fg; }
+#workspaces button:hover {
+    background: rgba(137, 180, 250, 0.2);
+}
 
-/* Warning / critical states */
-#cpu.warning, #memory.warning { color: @yellow; }
-#cpu.critical, #memory.critical { color: @bg; background: @red; animation: blink 0.5s linear infinite; }
-#battery.warning { color: @yellow; }
-#battery.critical { color: @bg; background: @red; animation: blink 0.5s linear infinite; }
-#temperature.critical { color: @bg; background: @red; animation: blink 0.5s linear infinite; }
-#battery.charging { color: @teal; }
-#network.disconnected { color: @red; }
-#bluetooth.connected { color: @teal; }
-#pulseaudio.muted { color: @red; }
-#idle_inhibitor.activated { color: @bg; background: @green; }
+#workspaces button.active {
+    background: #89b4fa;
+    color: #1e1e2e;
+}
 
-/* Tray */
-#tray { background: transparent; }
-#tray > .passive { -gtk-icon-effect: dim; }
-#tray > .active { -gtk-icon-effect: highlight; }
+#window {
+    font-weight: bold;
+    margin: 0 12px;
+}
+
+#clock, #tray, #idle_inhibitor, #pulseaudio, #network, #bluetooth, #cpu, #memory, #battery {
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 4px;
+}
+
+#clock {
+    background: #89b4fa;
+    color: #1e1e2e;
+    font-weight: bold;
+}
+
+#tray {
+    background: rgba(137, 180, 250, 0.1);
+}
+
+#idle_inhibitor.activated {
+    background: #a6e3a1;
+    color: #1e1e2e;
+}
+
+#pulseaudio {
+    background: rgba(249, 226, 175, 0.2);
+}
+
+#network {
+    background: rgba(166, 227, 161, 0.2);
+}
+
+#bluetooth {
+    background: rgba(137, 180, 250, 0.2);
+}
+
+#cpu, #memory {
+    background: rgba(203, 166, 247, 0.2);
+}
+
+#battery {
+    background: rgba(243, 139, 168, 0.2);
+}
+
+#battery.warning {
+    background: #f9e2af;
+    color: #1e1e2e;
+}
+
+#battery.critical {
+    background: #f38ba8;
+    color: #1e1e2e;
+    animation: blink 1s infinite;
+}
 
 @keyframes blink {
-  50% { opacity: 0.5; }
+    50% { opacity: 0.5; }
 }
 
 tooltip {
-  background: @bg;
-  border: 1px solid @blue;
-  border-radius: 8px;
-  color: @fg;
+    background: #1e1e2e;
+    border: 1px solid #89b4fa;
+    border-radius: 4px;
 }
-tooltip label { color: @fg; }
+
+tooltip label {
+    color: #cdd6f4;
+}
