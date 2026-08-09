@@ -1,0 +1,19 @@
+[general]
+bars = 0
+width = 2
+gap = 1
+
+[output]
+method = ncurses
+source = pulse
+channels = stereo
+
+[color]
+gradient = 1
+gradient_color_1 = '#89b4fa'
+gradient_color_2 = '#cba6f7'
+gradient_color_3 = '#f38ba8'
+gradient_color_4 = '#f9e2af'
+
+[smoothing]
+noise_reduction = 0.65
