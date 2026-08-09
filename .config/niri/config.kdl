@@ -1,8 +1,43 @@
+// Animações suaves
+animations {
+    slowdown 1.0
+    
+    workspace-switch {
+        spring damping-ratio=0.7 stiffness=800 epsilon=0.0001
+    }
+    
+    window-open {
+        spring damping-ratio=0.6 stiffness=400 epsilon=0.001
+    }
+    
+    window-close {
+        spring damping-ratio=0.6 stiffness=400 epsilon=0.001
+    }
+    
+    window-movement {
+        spring damping-ratio=0.8 stiffness=800 epsilon=0.0001
+    }
+    
+    window-resize {
+        spring damping-ratio=0.8 stiffness=800 epsilon=0.0001
+    }
+}
+
 input {
     keyboard {
         xkb {
             layout "pt"
         }
+    }
+
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        accel-speed 0.2
+        accel-profile "adaptive"
+        click-method "clickfinger"
+        scroll-method "two-finger"
     }
 }
 

@@ -1,0 +1,32 @@
+# Tema Catppuccin Mocha
+set default-bg "#1e1e2e"
+set default-fg "#cdd6f4"
+set statusbar-bg "#313244"
+set statusbar-fg "#cdd6f4"
+set inputbar-bg "#313244"
+set inputbar-fg "#cdd6f4"
+set completion-bg "#313244"
+set completion-fg "#cdd6f4"
+set completion-highlight-bg "#89b4fa"
+set completion-highlight-fg "#1e1e2e"
+set highlight-color "#f9e2af"
+set highlight-active-color "#f38ba8"
+
+# Config
+set guioptions ""
+set adjust-open "width"
+set pages-per-row "1"
+set scroll-page-aware "true"
+set scroll-full-overlap "0.01"
+set scroll-step "100"
+set zoom-min "10"
+
+# Atalhos Vim
+map <C-f> scroll half_down
+map <C-b> scroll half_up
+map <C-d> scroll half_down
+map <C-u> scroll half_up
+map u scroll full_up
+map d scroll full_down
+map J scroll full_down
+map K scroll full_up
