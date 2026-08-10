@@ -1,0 +1,18 @@
+#!/bin/bash
+pamixer -d 5
+VOLUME=$(pamixer --get-volume)
+MUTED=$(pamixer --get-mute)
+
+if [ "$MUTED" = "true" ]; then
+    ICON="audio-volume-muted"
+    notify-send -i "$ICON" "Volume" "Muted" -h string:x-dunst-stack-tag:volume
+else
+    if [ "$VOLUME" -lt 33 ]; then
+        ICON="audio-volume-low"
+    elif [ "$VOLUME" -lt 66 ]; then
+        ICON="audio-volume-medium"
+    else
+        ICON="audio-volume-high"
+    fi
+    notify-send -i "$ICON" "Volume" "${VOLUME}%" -h string:x-dunst-stack-tag:volume -h int:value:$VOLUME
+fi

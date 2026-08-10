@@ -1,2 +1,11 @@
 #!/bin/bash
-grim -g "$(slurp)" - | swappy -f -
+FILENAME="$HOME/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png"
+mkdir -p "$HOME/Pictures/Screenshots"
+
+# Capturar região
+grim -g "$(slurp)" - | tee "$FILENAME" | swappy -f - -o "$FILENAME"
+
+# Mostrar preview
+if [ -f "$FILENAME" ]; then
+    notify-send -i "$FILENAME" "Screenshot" "Saved to $FILENAME" -h string:x-dunst-stack-tag:screenshot
+fi

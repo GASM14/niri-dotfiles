@@ -1,0 +1,6 @@
+#!/bin/bash
+brightnessctl set 5%-
+BRIGHTNESS=$(brightnessctl get)
+MAX_BRIGHTNESS=$(brightnessctl max)
+PERCENT=$((BRIGHTNESS * 100 / MAX_BRIGHTNESS))
+notify-send -i "display-brightness" "Brightness" "${PERCENT}%" -h string:x-dunst-stack-tag:brightness -h int:value:$PERCENT

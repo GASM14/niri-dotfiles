@@ -1,0 +1,28 @@
+#!/bin/bash
+
+while true; do
+    # Obter percentagem de bateria
+    if [ -f /sys/class/power_supply/BAT0/capacity ]; then
+        BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
+        STATUS=$(cat /sys/class/power_supply/BAT0/status)
+        
+        # Avisar quando < 20%
+        if [ "$BATTERY" -le 20 ] && [ "$STATUS" = "Discharging" ]; then
+            notify-send -u critical -i "battery-caution" "Battery Low" "${BATTERY}% remaining" -h string:x-dunst-stack-tag:battery
+        fi
+        
+        # Suspender quando < 5%
+        if [ "$BATTERY" -le 5 ] && [ "$STATUS" = "Discharging" ]; then
+            notify-send -u critical -i "battery-empty" "Critical Battery" "Suspending in 10 seconds..." -h string:x-dunst-stack-tag:battery
+            sleep 10
+            # Verificar se ainda está abaixo de 5%
+            BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
+            if [ "$BATTERY" -le 5 ]; then
+                systemctl suspend
+            fi
+        fi
+    fi
+    
+    # Verificar a cada 60 segundos
+    sleep 60
+done
