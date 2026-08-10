@@ -55,7 +55,7 @@ input {
 // Launch at startup
 // ----------------------------------------------------------------------------
 
-spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
+// spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
 spawn-at-startup "/home/goncalom/.local/bin/wallpaper-restore"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 600 'lock-screen' timeout 900 'systemctl suspend' resume 'lock-screen' before-sleep 'lock-screen'"
 spawn-at-startup "nm-applet" "--indicator"
@@ -176,9 +176,8 @@ window-rule {
 
 spawn-at-startup "lxqt-policykit"
 
+spawn-at-startup "copyq"
 binds {
-    Mod+Shift+Escape  hotkey-overlay-title="Power menu" { spawn "power-menu"; }
-    Mod+Shift+V  hotkey-overlay-title="Clipboard history" { spawn "cliphist-fuzzel"; }
     Mod+Alt+D  hotkey-overlay-title="Document viewer" { spawn "zathura"; }
     Mod+Alt+I  hotkey-overlay-title="Image viewer" { spawn "imv"; }
 
@@ -417,6 +416,12 @@ binds {
     // allow-inhibiting=false can be applied to other binds as well, which
     // ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false hotkey-overlay-title="Always process even with inhibitor" { toggle-keyboard-shortcuts-inhibit; }
+
+    // Clipboard visual
+    Mod+Shift+V hotkey-overlay-title="Clipboard history" { spawn "cliphist-fuzzel"; }
+
+    // Power menu
+    Mod+Shift+Escape hotkey-overlay-title="Power menu" { spawn "power-menu"; }
 }
 
 // ----------------------------------------------------------------------------
@@ -425,3 +430,7 @@ binds {
 
 include "theme.kdl"
 include "config.kdl.local"
+
+    // Clipboard visual
+
+    // Power menu
