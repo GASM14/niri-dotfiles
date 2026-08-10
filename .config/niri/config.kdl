@@ -177,6 +177,13 @@ window-rule {
 spawn-at-startup "lxqt-policykit"
 
 spawn-at-startup "copyq"
+
+// CopyQ clipboard manager (floating)
+window-rule {
+    match app-id="copyq"
+    open-floating true
+}
+
 binds {
     Mod+Alt+D  hotkey-overlay-title="Document viewer" { spawn "zathura"; }
     Mod+Alt+I  hotkey-overlay-title="Image viewer" { spawn "imv"; }
@@ -418,10 +425,10 @@ binds {
     Mod+Escape allow-inhibiting=false hotkey-overlay-title="Always process even with inhibitor" { toggle-keyboard-shortcuts-inhibit; }
 
     // Clipboard visual
-    Mod+Shift+V hotkey-overlay-title="Clipboard history" { spawn "cliphist-fuzzel"; }
+    Mod+Shift+V hotkey-overlay-title="Clipboard history" { spawn "copyq" "toggle"; }
 
     // Power menu
-    Mod+Shift+Escape hotkey-overlay-title="Power menu" { spawn "power-menu"; }
+    Mod+Shift+Delete hotkey-overlay-title="Power menu" { spawn "/home/goncalom/.local/bin/power-menu"; }
 }
 
 // ----------------------------------------------------------------------------
