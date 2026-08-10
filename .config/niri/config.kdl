@@ -425,7 +425,7 @@ binds {
     Mod+Escape allow-inhibiting=false hotkey-overlay-title="Always process even with inhibitor" { toggle-keyboard-shortcuts-inhibit; }
 
     // Clipboard visual
-    Mod+Shift+V hotkey-overlay-title="Clipboard history" { spawn "copyq" "toggle"; }
+    Mod+Shift+V hotkey-overlay-title="Clipboard history" { spawn "/usr/bin/copyq" "toggle"; }
 
     // Power menu
     Mod+Shift+Delete hotkey-overlay-title="Power menu" { spawn "/home/goncalom/.local/bin/power-menu"; }
